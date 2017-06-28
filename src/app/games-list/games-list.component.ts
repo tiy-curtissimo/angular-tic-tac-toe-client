@@ -17,6 +17,7 @@ export class GamesListComponent implements OnInit {
   private games: Game[];
   private selectedGame: Game;
   private creatingGame: boolean;
+  private deletingGame: boolean;
 
   constructor(private factory: TicTacToeDataServiceFactory) {
     this.service = factory.create('http://localhost:3000');
@@ -54,6 +55,7 @@ export class GamesListComponent implements OnInit {
     if (game.winner === undefined) {
       return;
     }
+    this.deletingGame = true;
 
     this.service
       .destroy(game.id)
@@ -61,6 +63,11 @@ export class GamesListComponent implements OnInit {
         let index = this.games
           .findIndex(g => g.id === game.id);
         this.games.splice(index, 1);
+
+        if (this.selectedGame.id === game.id) {
+          this.selectedGame = null;
+          this.onGameSelected.emit(this.selectedGame);
+        }
       });
   }
 
@@ -75,6 +82,10 @@ export class GamesListComponent implements OnInit {
   }
 
   private gameClicked(game: Game) {
+    if (this.deletingGame) {
+      this.deletingGame = false;
+      return;
+    }
     if (this.selectedGame === game) {
       this.selectedGame = null;
     } else {
