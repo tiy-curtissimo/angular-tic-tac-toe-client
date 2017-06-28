@@ -1,0 +1,31 @@
+<widget-fab (click)="newGame()"
+            [hide]="creatingGame"
+            mini="true"
+            position="left top"
+            overlap="top"></widget-fab>
+<div id="new-game-form" [ngClass]="{ 'new-game': creatingGame }">
+  <p>Choose an option:</p>
+  <button (click)="createGame(true)">You go first</button>
+  <button (click)="createGame(false)">Computer goes first</button>
+</div>
+<widget-subheader *ngIf="games && games.length"
+                  [ngClass]="{ 'new-game': creatingGame }"
+                  nearFab="true">Games</widget-subheader>
+<ul class="games-list">
+  <li *ngFor="let game of games" class="games-list-item {{ isSelected(game) ? 'games-list-item-selected' : '' }}" (click)="gameClicked(game)">
+    <div class="games-list-item-icon">
+      <i class="material-icons">{{ game.winner === undefined? 'turned_in_not' : 'turned_in' }}</i>
+    </div>
+    <div class="games-list-item-text">
+      <div class="games-list-item-text-primary"
+           *ngIf="game.winner === undefined">{{ game.humanIndex? 'computer' : 'you' }} moved first</div>
+      <div class="games-list-item-text-primary"
+           *ngIf="game.winner !== undefined && game.humanIndex === game.winner">you won!</div>
+      <div class="games-list-item-text-primary"
+           *ngIf="game.winner !== undefined && game.humanIndex !== game.winner && game.winner > -1">computer won.</div>
+      <div class="games-list-item-text-primary"
+           *ngIf="game.winner !== undefined && game.winner === -1">you tied with a machine</div>
+      <div class="games-list-item-text-secondary">{{ humanizeTurnCount(game) }}</div>
+    </div>
+  </li>
+</ul>

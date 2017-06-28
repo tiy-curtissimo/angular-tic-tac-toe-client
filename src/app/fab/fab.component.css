@@ -1,0 +1,68 @@
+.fab {
+  height: 56px;
+  width: 56px;
+  border-radius: 28px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .24);
+  border: 0;
+  background-color: #eeff41;
+  color: black;
+  position: absolute;
+  outline: 0;
+  transition: box-shadow 300ms, transform 300ms;
+  z-index: 8;
+}
+
+.fab i {
+  transition: transform 300ms;
+}
+
+.fab:hover, .fab:active {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, .24);
+  transform: scale(1.03);
+}
+
+.fab:active i {
+  transform: rotate(180deg);
+}
+
+.fab.mini {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+.fab.left {
+  left: 16px;
+}
+
+.fab.right {
+  right: 16px;
+}
+
+.fab.bottom {
+  bottom: 16px;
+}
+
+.fab.top {
+  top: 16px;
+}
+
+.fab.bottom-overlap {
+  bottom: -28px;
+}
+
+.fab.mini.bottom-overlap {
+  bottom: -20px;
+}
+
+.fab.top-overlap {
+  top: -28px;
+}
+
+.fab.mini.top-overlap {
+  top: -20px;
+}
+
+.fab.hide {
+  transform: scale(0);
+}

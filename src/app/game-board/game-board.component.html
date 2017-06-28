@@ -1,0 +1,10 @@
+<table class="tic-tac-toe-board">
+  <tr *ngFor="let row of game.board; index as rowIndex">
+    <td *ngFor="let play of row; index as colIndex"
+        [ngClass]="{playable: play === null && game.winner === undefined}"
+        (click)="playInSquare(rowIndex, colIndex)">
+      <i class="material-icons" *ngIf="play === 0">close</i>
+      <i class="material-icons" *ngIf="play === 1"><div class="circle"></div></i>
+    </td>
+  </tr>
+</table>

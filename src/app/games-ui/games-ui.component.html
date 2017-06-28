@@ -1,0 +1,4 @@
+<app-games-list #list (onGameSelected)="game = $event"></app-games-list>
+<app-game-board *ngIf="game"
+                [game]="game"
+                (onPlayInSquare)="list.handlePlay($event)"></app-game-board>

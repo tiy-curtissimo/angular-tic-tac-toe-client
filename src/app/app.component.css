@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0px;
+}
+
+.app-bar {
+  background-color: #6200ea;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+}
+
+.app-bar-title {
+  font-weight: 400;
+  padding-left: 72px;
+}

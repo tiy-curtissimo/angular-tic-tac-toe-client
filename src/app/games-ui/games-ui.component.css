@@ -1,0 +1,12 @@
+:host {
+  flex: 1 0 0px;
+  display: flex;
+}
+
+app-games-list {
+  flex: 0 0 280px;
+}
+
+app-game-board {
+  flex: 1 0 0px;
+}
