@@ -42,12 +42,26 @@ export class GamesListComponent implements OnInit {
       });
   }
 
-  newGame() {
+  newGame(): void {
     this.creatingGame = true;
   }
 
-  cancelNewGame() {
+  cancelNewGame(): void {
     this.creatingGame = false;
+  }
+
+  private deleteGame(game: Game) {
+    if (game.winner === undefined) {
+      return;
+    }
+
+    this.service
+      .destroy(game.id)
+      .subscribe(() => {
+        let index = this.games
+          .findIndex(g => g.id === game.id);
+        this.games.splice(index, 1);
+      });
   }
 
   private createGame(humanMovesFirst) {

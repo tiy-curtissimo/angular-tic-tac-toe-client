@@ -30,10 +30,16 @@ export class TicTacToeDataService {
       .map(response => response.json());
   }
 
-  get(id: number): any {//Observable<Game> {
+  get(id: number): Observable<Game> {
     return this.http
       .get(`${this.server}/games/${id}`)
       .map(response => response.json());
+  }
+
+  destroy(id: number): Observable<Game[]> {
+    return this.http
+      .delete(`${this.server}/games/${id}`)
+      .map(response => ({}));
   }
 
   playInSquare(gameId: number, row: number, column: number): Observable<Game> {

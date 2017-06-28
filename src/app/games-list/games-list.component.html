@@ -17,7 +17,8 @@
 <ul class="games-list">
   <li *ngFor="let game of games" class="games-list-item {{ isSelected(game) ? 'games-list-item-selected' : '' }}" (click)="gameClicked(game)">
     <div class="games-list-item-icon">
-      <i class="material-icons">{{ game.winner === undefined? 'turned_in_not' : 'turned_in' }}</i>
+      <i class="material-icons"
+         (click)="deleteGame(game)">{{ game.winner === undefined? 'turned_in_not' : 'close' }}</i>
     </div>
     <div class="games-list-item-text">
       <div class="games-list-item-text-primary">{{ game | statusDescription }}</div>
