@@ -10,6 +10,8 @@ import { GamesUiComponent } from './games-ui/games-ui.component';
 import { GamesListComponent } from './games-list/games-list.component';
 import { GameBoardComponent } from './game-board/game-board.component';
 import { SubheaderComponent } from './subheader/subheader.component';
+import { MoveDescriptionPipe } from './move-description.pipe';
+import { StatusDescriptionPipe } from './status-description.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SubheaderComponent } from './subheader/subheader.component';
     GamesUiComponent,
     GamesListComponent,
     GameBoardComponent,
-    SubheaderComponent
+    SubheaderComponent,
+    MoveDescriptionPipe,
+    StatusDescriptionPipe
   ],
   imports: [
     BrowserModule,

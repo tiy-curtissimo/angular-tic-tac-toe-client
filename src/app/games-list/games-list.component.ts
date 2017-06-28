@@ -70,16 +70,4 @@ export class GamesListComponent implements OnInit {
            game.id === this.selectedGame.id;
   }
 
-  private humanizeTurnCount(game: Game): string {
-    let count = [].concat(...game.board)
-      .map(play => play === null? 0 : 1)
-      .reduce((acc, value) => acc + value, 0);
-
-    return count === 1 ?
-           `${count} move made` :
-           count === 0 ?
-             'no moves made, yet' :
-             `${count} moves made`;
-  }
-
 }

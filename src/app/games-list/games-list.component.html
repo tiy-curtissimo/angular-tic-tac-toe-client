@@ -17,15 +17,8 @@
       <i class="material-icons">{{ game.winner === undefined? 'turned_in_not' : 'turned_in' }}</i>
     </div>
     <div class="games-list-item-text">
-      <div class="games-list-item-text-primary"
-           *ngIf="game.winner === undefined">{{ game.humanIndex? 'computer' : 'you' }} moved first</div>
-      <div class="games-list-item-text-primary"
-           *ngIf="game.winner !== undefined && game.humanIndex === game.winner">you won!</div>
-      <div class="games-list-item-text-primary"
-           *ngIf="game.winner !== undefined && game.humanIndex !== game.winner && game.winner > -1">computer won.</div>
-      <div class="games-list-item-text-primary"
-           *ngIf="game.winner !== undefined && game.winner === -1">you tied with a machine</div>
-      <div class="games-list-item-text-secondary">{{ humanizeTurnCount(game) }}</div>
+      <div class="games-list-item-text-primary">{{ game | statusDescription }}</div>
+      <div class="games-list-item-text-secondary">{{ game | moveDescription }}</div>
     </div>
   </li>
 </ul>
