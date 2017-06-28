@@ -4,7 +4,10 @@
             position="left top"
             overlap="top"></widget-fab>
 <div id="new-game-form" [ngClass]="{ 'new-game': creatingGame }">
-  <p>Choose an option:</p>
+  <p class="app-bar">
+    <i class="material-icons" (click)="cancelNewGame()">arrow_back</i>
+    <span>Choose an option</span>
+  </p>
   <button (click)="createGame(true)">You go first</button>
   <button (click)="createGame(false)">Computer goes first</button>
 </div>

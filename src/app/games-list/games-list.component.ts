@@ -46,6 +46,10 @@ export class GamesListComponent implements OnInit {
     this.creatingGame = true;
   }
 
+  cancelNewGame() {
+    this.creatingGame = false;
+  }
+
   private createGame(humanMovesFirst) {
     this.creatingGame = false;
     this.service
